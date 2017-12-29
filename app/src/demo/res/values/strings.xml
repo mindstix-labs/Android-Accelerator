@@ -1,0 +1,4 @@
+<resources>
+    <!-- Application name for demo builds. Overwrites default application name. -->
+    <string name="app_name">MS Baseline Demo</string>
+</resources>
