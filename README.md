@@ -1,11 +1,11 @@
 Mindstix Android Accelerator
 ============================
 
-##About
+## About
 
 Mindstix Android Accelerator is a baseline framework for Android. It helps any Android developer to kickstart native Android application development.
 
-##Features
+## Features
 
 Baseline framework provides,
 
@@ -17,7 +17,7 @@ Baseline framework provides,
 * Sample service integration using OpenWeatherMap Weather and Forecast APIs.
 * Sample Fragment showing Weather information fetched from API.
 
-##Developer Guide
+## Developer Guide
 
 * Replace package name in 'app' build.gradle file with your required package name.
 * Replace package name in 'AndroidManifest.xml' file with same package name provided in build.gradle.
@@ -26,7 +26,7 @@ Baseline framework provides,
 * Replace UI components like MainActivity, HomeFragement, HomeAdapter with your required components.
 * Replace XML layout components like activity_main, fragment_home, weather_details with your required layout components.
 
-##Releases
+## Releases
 
 Version 0.1 - 29th December 2017.
 
@@ -38,7 +38,7 @@ Version 0.1 - 29th December 2017.
 * Sample service integration using OpenWeatherMap Weather and Forecast APIs.
 * Sample Fragment showing Weather information fetched from API.
 
-##Pipeline
+## Pipeline
 
 * Local Storage Access APIs - Shared Preferences, SQLite.
 * Push Notification integration - Firebase.
