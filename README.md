@@ -46,9 +46,7 @@ Version 0.1 - 29th December 2017.
 * Utilities.
 * Unit test coverage.
 
----
-
-# License
+## License
 
 MIT License
 
