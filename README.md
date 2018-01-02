@@ -40,9 +40,9 @@ Version 0.1 - 29th December 2017.
 
 ## Pipeline
 
-* Local Storage Access APIs - Shared Preferences, SQLite.
+* Local storage access APIs - Shared Preferences, SQLite.
 * Push Notification integration - Firebase.
-* Localisation Support.
+* Localisation support.
 * Utilities.
 * Unit test coverage.
 
