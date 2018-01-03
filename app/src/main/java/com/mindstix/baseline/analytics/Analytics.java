@@ -23,6 +23,8 @@
 package com.mindstix.baseline.analytics;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.mindstix.baseline.analytics.firebase.GoogleFirebaseAnalytics;
@@ -65,6 +67,7 @@ public class Analytics {
      * @return instance - Instance of type Analytics.
      * @throws AnalyticsException - If Analytics platform is not provided.
      */
+    @NonNull @Nullable
     public static Analytics getInstance(String analyticsPlatform, Context appContext)
             throws AnalyticsException, FirebaseException {
 

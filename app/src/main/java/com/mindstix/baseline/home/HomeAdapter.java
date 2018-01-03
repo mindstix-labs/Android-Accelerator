@@ -23,6 +23,7 @@
 package com.mindstix.baseline.home;
 
 import android.app.Activity;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -104,6 +105,7 @@ public class HomeAdapter extends RecyclerView.Adapter <HomeAdapter.HomeViewHolde
             wind = itemView.findViewById(R.id.forecast_wind);
         }
 
+        @Nullable
         public void bindData(ForecastList forecastData) {
 
             // Show weather data captured time.

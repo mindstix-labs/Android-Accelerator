@@ -73,8 +73,7 @@ public class HomeFragment extends Fragment {
     // Singleton analytics instance.
     Analytics analyticsInstance = null;
 
-    @Nullable
-    @Override
+    @Override @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         // Update tool bar title.
@@ -146,6 +145,7 @@ public class HomeFragment extends Fragment {
      * @param weatherData - Weather data received from API.
      * @param homeFragmentView - Instance of home fragment container.
      */
+    @Nullable
     private void showWeatherData(Weather weatherData, View homeFragmentView) {
 
         if (weatherData == null) {
@@ -302,6 +302,7 @@ public class HomeFragment extends Fragment {
      * @param forecastData - Forecast data received from API.
      * @param homeFragmentView - Instance of home fragment container.
      */
+    @Nullable
     private void showForecastData(Forecast forecastData, View homeFragmentView) {
 
         if (forecastData == null || forecastData.getForecastList() == null || forecastData.getForecastList().size() == 0) {
