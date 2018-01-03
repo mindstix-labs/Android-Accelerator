@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'                   // For Firebase Crashlytics.
+
+// Global configuration.
+// Replace 'appPackage' with your application package name. In AndroidManifest.xml too.
+def final appPackage = "com.mindstix.baseline"
+def final appVersion = "alpha"
+
+android {
+    // Compile and build SDK versions.
+    compileSdkVersion 26
+
+    // Default application configuration.
+    defaultConfig {
+        applicationId appPackage
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName appVersion
+        flavorDimensions "default"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    // Release/Production build configuration.
+    // Note: Including the passwords for your release key and keystore inside the build file is not
+    // a good security practice. Alternatively, you can configure the build file to obtain these
+    // passwords from environment variables or have the build process prompt you for these passwords.
+    // Reference: https://developer.android.com/studio/build/build-variants.html
+    signingConfigs {
+        release {
+            storeFile file("baseline-keystore")
+            storePassword "mindstix"
+            keyAlias "Mindstix Baseline"
+            keyPassword "mindstix"
+        }
+    }
+
+    // Application build variants/flavours.
+    productFlavors {
+        // Demo environment configuration.
+        demo {
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+            buildTypes {
+                debug {
+                    minifyEnabled false
+                    debuggable true
+                }
+            }
+        }
+
+        // Development environment configuration.
+        dev {
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            buildTypes {
+                debug {
+                    minifyEnabled false
+                    debuggable true
+                }
+            }
+        }
+
+        // QA environment configuration.
+        qa {
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+            buildTypes {
+                debug {
+                    minifyEnabled false
+                    debuggable true
+                }
+            }
+        }
+
+        // Production environment configuration.
+        prod {
+            buildTypes {
+                debug {
+                    minifyEnabled false
+                    debuggable true
+                }
+                release {
+                    minifyEnabled true
+                    debuggable false
+                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    signingConfig signingConfigs.release
+                }
+            }
+        }
+    }
+}
+
+// Application dependencies. Third party libraries will be added here.
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Firebase Crash and Log reporter.
+    compile 'com.google.firebase:firebase-crash:11.8.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true
+    }
+
+    // Firebase Analytics.
+    compile 'com.google.firebase:firebase-core:11.8.0'
+
+    // Retrofit.
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // Android RecyclerView and CardView.
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+
+    // Picasso image caching.
+    compile 'com.squareup.picasso:picasso:2.5.2'
+}
+
+// For Firebase Crashlytics.
+apply plugin: 'com.google.gms.google-services'

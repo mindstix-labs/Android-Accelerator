@@ -1,0 +1,4 @@
+<resources>
+    <!-- Application name for QA builds. Overwrites default application name. -->
+    <string name="app_name">MS Baseline QA</string>
+</resources>
