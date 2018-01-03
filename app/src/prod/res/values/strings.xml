@@ -1,0 +1,4 @@
+<resources>
+    <!-- Application name for prod builds. Kept same as default application name. -->
+    <string name="app_name">MS Baseline</string>
+</resources>
