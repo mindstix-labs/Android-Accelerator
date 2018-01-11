@@ -119,7 +119,7 @@ dependencies {
     // Android RecyclerView and CardView.
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26.1.0'
-    
+
     // Picasso image caching.
     compile 'com.squareup.picasso:picasso:2.5.2'
 }
