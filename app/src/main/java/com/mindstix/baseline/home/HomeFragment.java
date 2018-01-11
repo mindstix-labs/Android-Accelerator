@@ -24,6 +24,7 @@ package com.mindstix.baseline.home;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -118,7 +119,7 @@ public class HomeFragment extends Fragment {
      *
      * @param homeFragmentView - Instance of home fragment container.
      */
-    private void getWeatherData(final View homeFragmentView) {
+    private void getWeatherData(@NonNull final View homeFragmentView) {
 
         // Get instance of API interface.
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -145,8 +146,7 @@ public class HomeFragment extends Fragment {
      * @param weatherData - Weather data received from API.
      * @param homeFragmentView - Instance of home fragment container.
      */
-    @Nullable
-    private void showWeatherData(Weather weatherData, View homeFragmentView) {
+    private void showWeatherData(@Nullable Weather weatherData, @NonNull View homeFragmentView) {
 
         if (weatherData == null) {
             Toast.makeText(getActivity(), "Failed to get weather data.", Toast.LENGTH_SHORT).show();

@@ -67,8 +67,8 @@ public class Analytics {
      * @return instance - Instance of type Analytics.
      * @throws AnalyticsException - If Analytics platform is not provided.
      */
-    @NonNull @Nullable
-    public static Analytics getInstance(String analyticsPlatform, Context appContext)
+    @NonNull
+    public static Analytics getInstance(@Nullable String analyticsPlatform, @Nullable Context appContext)
             throws AnalyticsException, FirebaseException {
 
         // Validate application context.
