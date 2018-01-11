@@ -20,29 +20,29 @@
  * SOFTWARE.
  */
 
-package com.mindstix.baseline;
+package com.mindstix.baseline.social;
+
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import static org.junit.Assert.*;
 
 /**
- * FlavorSpecific class for 'Prod' build variants.
- * This class will hold all the required configuration for running 'Prod' variant of the application.
- * Example: Analytics Keys, Crash Reporting Tool Keys, Push Notification Platform Configuration etc.
+ * Instrumented test, which will execute on an Android device.
  *
- * @author Mindstix Software Labs, Inc.
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+@RunWith(AndroidJUnit4.class)
+public class ExampleInstrumentedTest {
+    @Test
+    public void useAppContext() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
 
-public class FlavorSpecific {
-
-    public static final String APP_LOG_TAG = "Baseline Prod";
-
-    // Social login enabled/disabled.
-    public static final boolean SOCIAL_LOGIN = true;
-
-    // Weather API base URL.
-    public static final String API_BASE_URL = "http://api.openweathermap.org";
-
-    // Weather API application ID.
-    public static final String APP_ID = "63651b78dd7c768fc9b24a55353646fd";
-
-    // Weather condition icon base URL.
-    public static final String ICON_BASE_URL = "http://openweathermap.org/img/w/";
+        assertEquals("com.mindstix.baseline.social.test", appContext.getPackageName());
+    }
 }

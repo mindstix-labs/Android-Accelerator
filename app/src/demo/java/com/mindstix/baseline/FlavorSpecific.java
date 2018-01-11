@@ -34,6 +34,9 @@ public class FlavorSpecific {
 
     public static final String APP_LOG_TAG = "Baseline Demo";
 
+    // Social login enabled/disabled.
+    public static final boolean SOCIAL_LOGIN = true;
+
     // Weather API base URL.
     public static final String API_BASE_URL = "http://api.openweathermap.org";
 

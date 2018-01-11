@@ -20,29 +20,23 @@
  * SOFTWARE.
  */
 
-package com.mindstix.baseline;
+package com.mindstix.baseline.social;
+
+import android.app.Application;
 
 /**
- * FlavorSpecific class for 'Prod' build variants.
- * This class will hold all the required configuration for running 'Prod' variant of the application.
- * Example: Analytics Keys, Crash Reporting Tool Keys, Push Notification Platform Configuration etc.
+ * Social module application.
  *
  * @author Mindstix Software Labs, Inc.
  */
 
-public class FlavorSpecific {
+public class SocialApplication extends Application {
 
-    public static final String APP_LOG_TAG = "Baseline Prod";
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-    // Social login enabled/disabled.
-    public static final boolean SOCIAL_LOGIN = true;
+        // TODO: Log Social Module integration event in Firebase.
 
-    // Weather API base URL.
-    public static final String API_BASE_URL = "http://api.openweathermap.org";
-
-    // Weather API application ID.
-    public static final String APP_ID = "63651b78dd7c768fc9b24a55353646fd";
-
-    // Weather condition icon base URL.
-    public static final String ICON_BASE_URL = "http://openweathermap.org/img/w/";
+    }
 }

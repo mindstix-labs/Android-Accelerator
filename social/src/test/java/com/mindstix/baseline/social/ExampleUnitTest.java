@@ -20,29 +20,20 @@
  * SOFTWARE.
  */
 
-package com.mindstix.baseline;
+package com.mindstix.baseline.social;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
- * FlavorSpecific class for 'Prod' build variants.
- * This class will hold all the required configuration for running 'Prod' variant of the application.
- * Example: Analytics Keys, Crash Reporting Tool Keys, Push Notification Platform Configuration etc.
+ * Example local unit test, which will execute on the development machine (host).
  *
- * @author Mindstix Software Labs, Inc.
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-
-public class FlavorSpecific {
-
-    public static final String APP_LOG_TAG = "Baseline Prod";
-
-    // Social login enabled/disabled.
-    public static final boolean SOCIAL_LOGIN = true;
-
-    // Weather API base URL.
-    public static final String API_BASE_URL = "http://api.openweathermap.org";
-
-    // Weather API application ID.
-    public static final String APP_ID = "63651b78dd7c768fc9b24a55353646fd";
-
-    // Weather condition icon base URL.
-    public static final String ICON_BASE_URL = "http://openweathermap.org/img/w/";
+public class ExampleUnitTest {
+    @Test
+    public void addition_isCorrect() throws Exception {
+        assertEquals(4, 2 + 2);
+    }
 }

@@ -102,6 +102,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+    // Social media.
+    compile project(':social')
+
     // Firebase Crash and Log reporter.
     compile 'com.google.firebase:firebase-crash:11.8.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {

@@ -23,6 +23,7 @@
 package com.mindstix.baseline;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -30,6 +31,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crash.FirebaseCrash;
 import com.mindstix.baseline.analytics.Analytics;
 import com.mindstix.baseline.home.HomeFragment;
+import com.mindstix.baseline.social.SocialActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,8 +45,12 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Global constants.
+    private static final int SOCIAL_REQUEST_CODE = 10001;
+    private static final int SOCIAL_RESULT_CODE = 20001;
+
     // Singleton analytics instance.
-    Analytics analyticsInstance = null;
+    private Analytics analyticsInstance = null;
 
     /**
      * You must implement this callback, which fires when the system first creates the activity.
@@ -60,39 +66,49 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Bind XML layout with Activity.
-        setContentView(R.layout.activity_main);
+        if (FlavorSpecific.SOCIAL_LOGIN) {
+            Intent socialActivityIntent = new Intent(this, SocialActivity.class);
+            startActivityForResult(socialActivityIntent, SOCIAL_REQUEST_CODE);
+        } else {
+            // Bind XML layout with Activity.
+            setContentView(R.layout.activity_main);
 
-        // Start Home Fragment.
-        HomeFragment homeFragment = new HomeFragment();
+            // Start Home Fragment.
+            HomeFragment homeFragment = new HomeFragment();
 
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, homeFragment);
-        fragmentTransaction.commit();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container, homeFragment);
+            fragmentTransaction.commit();
 
-        // Initialise analytics instance.
-        try {
-            analyticsInstance = Analytics.getInstance(Analytics.PLATFORM_FIREBASE_ANALYTICS, getApplicationContext());
-        } catch (Exception exception) {
-            FirebaseCrash.report(exception);
-            exception.printStackTrace();
-        }
-
-        // Track analytics events at the end of the block.
-        if (analyticsInstance != null) {
-            Map<String, String> eventParams = new HashMap<>();
-            eventParams.put(Analytics.PARAM_ID, "1");
-            eventParams.put(Analytics.PARAM_NAME, "MainActivity");
-            eventParams.put(Analytics.PARAM_TYPE, "onCreate");
-            eventParams.put(Analytics.EVENT_TYPE, FirebaseAnalytics.Event.APP_OPEN);
-
+            // Initialise analytics instance.
             try {
-                analyticsInstance.logEvent(eventParams);
-            } catch (Exception e) {
-                FirebaseCrash.report(e);
-                e.printStackTrace();
+                analyticsInstance = Analytics.getInstance(Analytics.PLATFORM_FIREBASE_ANALYTICS, getApplicationContext());
+            } catch (Exception exception) {
+                FirebaseCrash.report(exception);
+                exception.printStackTrace();
+            }
+
+            // Track analytics events at the end of the block.
+            if (analyticsInstance != null) {
+                Map<String, String> eventParams = new HashMap<>();
+                eventParams.put(Analytics.PARAM_ID, "1");
+                eventParams.put(Analytics.PARAM_NAME, "MainActivity");
+                eventParams.put(Analytics.PARAM_TYPE, "onCreate");
+                eventParams.put(Analytics.EVENT_TYPE, FirebaseAnalytics.Event.APP_OPEN);
+
+                try {
+                    analyticsInstance.logEvent(eventParams);
+                } catch (Exception e) {
+                    FirebaseCrash.report(e);
+                    e.printStackTrace();
+                }
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
