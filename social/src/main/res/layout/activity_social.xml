@@ -27,10 +27,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.mindstix.baseline.social.SocialActivity">
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/facebook_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_30_dp" />
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_30_dp" />

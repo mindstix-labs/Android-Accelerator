@@ -24,6 +24,8 @@ package com.mindstix.baseline.social;
 
 import android.app.Application;
 
+import com.twitter.sdk.android.core.Twitter;
+
 /**
  * Social module application.
  *
@@ -37,6 +39,10 @@ public class SocialApplication extends Application {
         super.onCreate();
 
         // TODO: Log Social Module integration event in Firebase.
+        // Log Facebook.
+        // Log Twitter.
 
+        // Initialise Twitter Kit.
+        Twitter.initialize(this);
     }
 }

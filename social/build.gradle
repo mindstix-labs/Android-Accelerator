@@ -32,7 +32,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    // Facebook Login and Share only
+    // Facebook Login and Share only.
     compile 'com.facebook.android:facebook-login:4.28.0'
     compile 'com.facebook.android:facebook-share:4.28.0'
+
+    // Twitter Login and Compose only.
+    compile 'com.twitter.sdk.android:twitter-core:3.1.1'
+    compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
 }

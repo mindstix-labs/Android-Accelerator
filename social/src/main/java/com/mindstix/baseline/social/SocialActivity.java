@@ -33,6 +33,11 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 /**
  * Activity for different social media logins.
@@ -45,6 +50,9 @@ public class SocialActivity extends AppCompatActivity {
     // Facebook.
     private CallbackManager callbackManager = null;
 
+    // Twitter.
+    private TwitterLoginButton twitterLoginButton = null;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +60,9 @@ public class SocialActivity extends AppCompatActivity {
 
         // Redirect to Facebook Login handler.
         facebookLogin();
+
+        // Redirect to Twitter Login handler.
+        twitterLogin();
     }
 
     /**
@@ -59,8 +70,8 @@ public class SocialActivity extends AppCompatActivity {
      */
     private void facebookLogin() {
         // Register Facebook Login button callback.
-        LoginButton loginButton = findViewById(R.id.facebook_login_button);
-        loginButton.setReadPermissions("email");
+        LoginButton facebookLoginButton = findViewById(R.id.facebook_login_button);
+        facebookLoginButton.setReadPermissions("email");
 
         // If using in a fragment.
         // loginButton.setFragment(this);
@@ -68,7 +79,7 @@ public class SocialActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
 
         // Callback registration.
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // TODO: Log Firebase event.
@@ -89,14 +100,39 @@ public class SocialActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Twitter login handler.
+     */
+    private void twitterLogin() {
+        // Register Twitter Login button callback.
+        twitterLoginButton = findViewById(R.id.twitter_login_button);
+
+        twitterLoginButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                // Do something with result, which provides a TwitterSession for making API calls
+                // TODO: Log Firebase event.
+                Toast.makeText(getApplicationContext(), "Twitter Login Succeeded.", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void failure(TwitterException exception) {
+                // TODO: Log Firebase event.
+                Toast.makeText(getApplicationContext(), "Twitter Login Failure.", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (data != null) {
-            // Return Facebook Login result.
-            callbackManager.onActivityResult(requestCode, resultCode, data);
-        }
+        // Facebook call needs to be before super method call.
+        // Return Facebook Login result.
+        callbackManager.onActivityResult(requestCode, resultCode, data);
 
         super.onActivityResult(requestCode, resultCode, data);
+
+        // Pass the activity result to the login button.
+        twitterLoginButton.onActivityResult(requestCode, resultCode, data);
     }
 }
