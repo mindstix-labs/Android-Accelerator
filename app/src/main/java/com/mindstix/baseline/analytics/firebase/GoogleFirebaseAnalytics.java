@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Mindstix Software Labs, Inc.
+ * Copyright (c) 2017-18 Mindstix Software Labs, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,7 @@ package com.mindstix.baseline.analytics.firebase;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -49,6 +50,7 @@ public class GoogleFirebaseAnalytics {
      * @param appContext - Application context to initialise FirebaseAnalytics.
      * @throws FirebaseException - If application context is not passed.
      */
+    @Nullable
     public static void initialiseFirebaseAnalytics(Context appContext) throws FirebaseException {
         // Validate application context.
         if(appContext == null) {
@@ -64,6 +66,7 @@ public class GoogleFirebaseAnalytics {
      * @param eventParams - Set of parameters to be logged for event type.
      * @throws FirebaseException - If Firebase is not initialised or event params are not valid.
      */
+    @Nullable
     public static void logEvent(Map<String, String> eventParams) throws FirebaseException {
         // Validate FirebaseAnalytics instance.
         if(firebaseAnalytics == null) {

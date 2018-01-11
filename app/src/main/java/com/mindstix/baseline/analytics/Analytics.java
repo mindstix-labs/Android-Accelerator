@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Mindstix Software Labs, Inc.
+ * Copyright (c) 2017-18 Mindstix Software Labs, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,8 @@
 package com.mindstix.baseline.analytics;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.mindstix.baseline.analytics.firebase.GoogleFirebaseAnalytics;
@@ -65,7 +67,8 @@ public class Analytics {
      * @return instance - Instance of type Analytics.
      * @throws AnalyticsException - If Analytics platform is not provided.
      */
-    public static Analytics getInstance(String analyticsPlatform, Context appContext)
+    @NonNull
+    public static Analytics getInstance(@Nullable String analyticsPlatform, @Nullable Context appContext)
             throws AnalyticsException, FirebaseException {
 
         // Validate application context.

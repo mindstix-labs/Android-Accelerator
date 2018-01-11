@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Mindstix Software Labs, Inc.
+ * Copyright (c) 2017-18 Mindstix Software Labs, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,7 @@ package com.mindstix.baseline.home;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -73,8 +74,7 @@ public class HomeFragment extends Fragment {
     // Singleton analytics instance.
     Analytics analyticsInstance = null;
 
-    @Nullable
-    @Override
+    @Override @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         // Update tool bar title.
@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment {
      *
      * @param homeFragmentView - Instance of home fragment container.
      */
-    private void getWeatherData(final View homeFragmentView) {
+    private void getWeatherData(@NonNull final View homeFragmentView) {
 
         // Get instance of API interface.
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment {
      * @param weatherData - Weather data received from API.
      * @param homeFragmentView - Instance of home fragment container.
      */
-    private void showWeatherData(Weather weatherData, View homeFragmentView) {
+    private void showWeatherData(@Nullable Weather weatherData, @NonNull View homeFragmentView) {
 
         if (weatherData == null) {
             Toast.makeText(getActivity(), "Failed to get weather data.", Toast.LENGTH_SHORT).show();
@@ -302,6 +302,7 @@ public class HomeFragment extends Fragment {
      * @param forecastData - Forecast data received from API.
      * @param homeFragmentView - Instance of home fragment container.
      */
+    @Nullable
     private void showForecastData(Forecast forecastData, View homeFragmentView) {
 
         if (forecastData == null || forecastData.getForecastList() == null || forecastData.getForecastList().size() == 0) {
