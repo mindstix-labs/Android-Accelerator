@@ -23,14 +23,14 @@
   -->
 
 <resources>
-    <!-- XML layout dimensions for entire module -->
-    <dimen name="dimen_3_dp">3dp</dimen>
-    <dimen name="dimen_6_dp">6dp</dimen>
-    <dimen name="dimen_10_dp">10dp</dimen>
-    <dimen name="dimen_36_dp">36dp</dimen>
-    <dimen name="dimen_42_dp">42dp</dimen>
-    <dimen name="dimen_48_dp">48dp</dimen>
 
-    <!-- Font sizes. -->
-    <dimen name="font_size_20_sp">20sp</dimen>
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowIsFloating">true</item>-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
 </resources>

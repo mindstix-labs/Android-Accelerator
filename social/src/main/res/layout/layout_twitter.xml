@@ -22,15 +22,31 @@
   ~ SOFTWARE.
   -->
 
-<resources>
-    <!-- XML layout dimensions for entire module -->
-    <dimen name="dimen_3_dp">3dp</dimen>
-    <dimen name="dimen_6_dp">6dp</dimen>
-    <dimen name="dimen_10_dp">10dp</dimen>
-    <dimen name="dimen_36_dp">36dp</dimen>
-    <dimen name="dimen_42_dp">42dp</dimen>
-    <dimen name="dimen_48_dp">48dp</dimen>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/twitter_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_48_dp"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    android:background="@color/twitter_background"
+    android:onClick="onTwitterLoginClick" >
+    
+    <ImageView
+        android:layout_width="@dimen/dimen_36_dp"
+        android:layout_height="@dimen/dimen_36_dp"
+        android:src="@drawable/ic_twitter"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/dimen_6_dp" />
 
-    <!-- Font sizes. -->
-    <dimen name="font_size_20_sp">20sp</dimen>
-</resources>
+    <Button
+        android:id="@+id/twitter_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/twitter_login_button_text"
+        android:textSize="@dimen/font_size_20_sp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:onClick="onTwitterLoginClick" />
+
+</LinearLayout>

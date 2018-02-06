@@ -23,27 +23,36 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/google_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:orientation="vertical"
-    tools:context="com.mindstix.baseline.social.SocialActivity">
+    android:layout_height="@dimen/dimen_48_dp"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    android:background="@color/google_background">
+    
+    <ImageView
+        android:layout_width="@dimen/dimen_36_dp"
+        android:layout_height="@dimen/dimen_36_dp"
+        android:src="@drawable/ic_google"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/dimen_6_dp" />
 
-    <include layout="@layout/layout_facebook"
+    <Button
+        android:id="@+id/google_login_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_10_dp" />
+        android:layout_height="match_parent"
+        android:text="@string/google_login_button_text"
+        android:textSize="@dimen/font_size_20_sp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:onClick="onGoogleLoginClick" />
 
-    <include layout="@layout/layout_twitter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dimen_10_dp"
-        android:layout_marginRight="@dimen/dimen_10_dp" />
-
-    <include layout="@layout/layout_google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_10_dp" />
+    <!--<com.google.android.gms.common.SignInButton-->
+    <!--android:id="@+id/google_login_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/dimen_10_dp"-->
+    <!--android:onClick="onGoogleLoginClick" />-->
 
 </LinearLayout>

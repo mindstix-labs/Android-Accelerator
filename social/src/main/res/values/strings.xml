@@ -31,4 +31,11 @@
     <string name="com.twitter.sdk.android.CONSUMER_KEY">cUrCJ22b9FEi30Pr2MOaOHO1E</string>
     <string name="com.twitter.sdk.android.CONSUMER_SECRET">A0D0CfXmk4dEez8XwNaSIGr87Be1GSXRuZah3Rmt4XAfTJuLhf</string>
 
+    <!-- Social login button text. -->
+    <string name="facebook_login_button_text">Sign in with Facebook</string>
+    <string name="twitter_login_button_text">Sign in with Twitter</string>
+    <string name="google_login_button_text">Sign in with Google</string>
+    <string name="lionkedin_login_button_text">Sign in with LinkedIn</string>
+    <string name="instagram_login_button_text">Sign in with Instagram</string>
+
 </resources>

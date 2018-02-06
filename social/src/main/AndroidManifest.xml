@@ -35,7 +35,8 @@
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 
-        <activity android:name=".SocialActivity" />
+        <activity android:name=".SocialActivity"
+            android:theme="@style/Theme.Transparent"/>
 
         <!-- FacebookActivity. -->
         <activity android:name="com.facebook.FacebookActivity"

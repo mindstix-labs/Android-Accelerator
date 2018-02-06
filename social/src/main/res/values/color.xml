@@ -23,14 +23,11 @@
   -->
 
 <resources>
-    <!-- XML layout dimensions for entire module -->
-    <dimen name="dimen_3_dp">3dp</dimen>
-    <dimen name="dimen_6_dp">6dp</dimen>
-    <dimen name="dimen_10_dp">10dp</dimen>
-    <dimen name="dimen_36_dp">36dp</dimen>
-    <dimen name="dimen_42_dp">42dp</dimen>
-    <dimen name="dimen_48_dp">48dp</dimen>
 
-    <!-- Font sizes. -->
-    <dimen name="font_size_20_sp">20sp</dimen>
+    <color name="facebook_background">#3B5998</color>
+    <color name="twitter_background">#55ACEE</color>
+    <color name="google_background">#DD4B39</color>
+    <color name="linkedin_background">#007BB6</color>
+    <color name="instagram_background">#3F729B</color>
+
 </resources>

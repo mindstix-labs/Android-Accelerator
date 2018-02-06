@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (FlavorSpecific.SOCIAL_LOGIN) {
             Intent socialActivityIntent = new Intent(this, SocialActivity.class);
+            socialActivityIntent.putExtra(SocialActivity.FACEBOOK_LOGIN, true);
+            socialActivityIntent.putExtra(SocialActivity.TWITTER_LOGIN, true);
+            socialActivityIntent.putExtra(SocialActivity.GOOGLE_LOGIN, true);
             startActivityForResult(socialActivityIntent, SOCIAL_REQUEST_CODE);
         } else {
             // Bind XML layout with Activity.

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 // Global configuration.
-def final appPackage = "com.mindstix.baseline.social"
+def final modulePackage = "com.mindstix.baseline.social"
 
 android {
     // Compile and build SDK versions.
@@ -26,9 +26,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:26.1.0'
+
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
@@ -39,4 +40,10 @@ dependencies {
     // Twitter Login and Compose only.
     compile 'com.twitter.sdk.android:twitter-core:3.1.1'
     compile 'com.twitter.sdk.android:tweet-composer:3.1.1'
+
+    // Google sign-in.
+    compile 'com.google.android.gms:play-services-auth:11.8.0'
 }
+
+// For Google Sign In. Keeping it last as it conflicts with Firebase plugin in baseline app.
+apply plugin: 'com.google.gms.google-services'
